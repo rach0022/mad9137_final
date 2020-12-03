@@ -1,5 +1,8 @@
 # MAD9137 Final - Passport Application in XCODE
 
+## Bugs:
+- [ ] preform segue to 'ShowPassportTable' does not fire, may have to change logic
+
 ## Layout (21 pt)
 
 - [x] create a tableViewController, a tableViewController class file, and assign the class to the tableView in the storyboard (3pt)

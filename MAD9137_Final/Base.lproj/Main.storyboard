@@ -138,16 +138,25 @@
                     <view key="view" contentMode="scaleToFill" id="53Z-KA-xH5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passport iOS Application" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEm-vJ-tKh">
+                                <rect key="frame" x="58" y="147" width="299" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0yn-4Q-70R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <segue destination="GTk-dq-C9b" kind="show" identifier="ShowPassportTable" id="XdE-DC-l2X"/>
+                        <segue destination="GTk-dq-C9b" kind="show" identifier="ShowPassportTable" id="L6x-5P-Oxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRT-Gx-La0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-683" y="-38"/>
+            <point key="canvasLocation" x="-684.05797101449275" y="-38.169642857142854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6B1-RV-i1N">
