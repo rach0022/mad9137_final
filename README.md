@@ -35,7 +35,7 @@
 - [x] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
 - [x] write a requestTask to process the server data and any errors that are received by the server, and send it to your callback function (5 pt)
 - [x] write a callback function that will process any errors if they exist and, if they don’t, process the response string from the server and serialize the JSON response in to your JSON object, then tell the tableView to reload the data (7 pt)
-- [ ] override the tableView functions needed to populate the table with tableView cells, displaying the title stored in the JSON object (10 pt)
+- [x] override the tableView functions needed to populate the table with tableView cells, displaying the title stored in the JSON object (10 pt)
 - [ ] override the tableView function to allow the user to delete a location out of the table, and call a function that will make a URLRequest (3 pt)
 - [ ] write a function that takes an integer for an id parameter and calls the URL https://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id= , passing the location’s id to the end of the delete query to delete (6 pt)
 - [x] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)

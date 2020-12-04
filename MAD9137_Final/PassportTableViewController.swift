@@ -54,25 +54,34 @@ class PassportTableViewController: UITableViewController {
 
         // Configure the cell... after checking if we have JSONData or not
         if let jsonData = self.jsonResponseObject as [String:[[String:Any]]]? {
-            // loop through the jsonData array to access the individual values
-            let title = "\(jsonData)"
-            let arrival = "arrival"
-            let departure = "departure"
-            
-            if let myCell = cell {
-                myCell.cellPassportTitle?.text = title
-                myCell.cellPassportArrival?.text = arrival
-                myCell.cellPassportArrival?.text = departure
+            if let locations = jsonData["locations"]{
+                // loop through the jsonData array to access the individual values
+                let title = locations[indexPath.row]["title"] as? String
+//                let arrival = locations[indexPath.row]["arrival"] as? String
+//                let departure = locations[indexPath.row]["departure"] as? String
                 
+                if let myCell = cell {
+                    myCell.cellPassportTitle?.text = title
+//                    myCell.cellPassportArrival?.text = arrival
+//                    myCell.cellPassportArrival?.text = departure
+                    
+                }
             }
-            
-            // print the json data for now to see what we are working with
-            print(jsonData)
-
         }
 
         return cell!
     }
+    
+    // Override to support editing the table view. This method will call the delete url for hte speicifci id of that table cell
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // before we delete the cell lets send the request to the api to delete the cell
+//            // Delete the row from the data source
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
     
     // the actions connected to the PassportTableViewController
     @IBAction func addPassportBarButtonAction(_ sender: Any) {
@@ -120,7 +129,7 @@ class PassportTableViewController: UITableViewController {
         }
     }
     
-    // function callback for the JSON reponse
+    // method  callback for the JSON reponse
     func asyncPassportCallback(responseString: String, error: String?){
         // define the string that we will use for our API response
         var outputString: String?

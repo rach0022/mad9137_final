@@ -10,8 +10,6 @@ import UIKit
 class PassportTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cellPassportTitle: UILabel!
-    @IBOutlet weak var cellPassportArrival: UILabel!
-    @IBOutlet weak var cellPassportDeparture: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
