@@ -55,11 +55,11 @@
 ## AddViewController class (29 pt)
 
 - [ ] import CoreLocation framework, and create a CLLocationManager object (2 pt)
-- [ ] in the touchesBegan function, hide the keyboards (2 pt)
-- [ ] “Save” barButtonItem action must hide the keyboards (1 pt)
+- [x] in the touchesBegan function, hide the keyboards (2 pt)
+- [x] “Save” barButtonItem action must hide the keyboards (1 pt)
 - [ ] if the textField has text entered in it, the “Save” action will make a URLRequest to the following URI https://lenczes.edumedia.ca/mad9137/final_api/passport/create/?data=, concatenating the outlet’s values converted to a JSON string on to the end of the URL (15 pt)
-- [ ] write an addRequestTask to process the server data and any errors that are received by the server, and send it to the addCallback function (5 pt)
-- [ ] write an addCallback function that will process any errors if they exist and, if they don’t, tell the navigationController to popToRootViewController (4 pt)
+- [x] write an addRequestTask to process the server data and any errors that are received by the server, and send it to the addCallback function (5 pt)
+- [x] write an addCallback function that will process any errors if they exist and, if they don’t, tell the navigationController to popToRootViewController (4 pt)
 
 ## Quality Control (29 pt)
 
