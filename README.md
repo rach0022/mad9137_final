@@ -3,7 +3,7 @@
 ## Bugs:
 - [x] preform segue to 'ShowPassportTable' does not fire, may have to change logic | SOLUTION: forgot to fire the task off the main thread
 - [ ] need to figure out way to change the initial root view of the final project from the splash screen to the table view
-
+- [ ] cannot display the latitude or the longitude of any cell but can display the rest of the cell info in a multiline string 
 ## Layout (21 pt)
 
 - [x] create a tableViewController, a tableViewController class file, and assign the class to the tableView in the storyboard (3pt)
@@ -47,10 +47,10 @@
 ## InfoViewController class (25 pt)
 
 - [x] create a dictionary that will hold the location’s JSON object passed from the PassportTableViewController (2 pt)
-- [ ] in the viewDidLoad() function, call the URL https://lenczes.edumedia.ca/mad9137/final_api/passport/read/?id=, passing the location’s id to the end of the query (5 pt)
-- [ ] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
-- [ ] write a requestTask to process the server data and any errors that are received by the server, and send it to your callback function (5 pt)
-- [ ] write a callback function that will process any errors if they exist and, if they don’t, process the response string from the server and serialize the JSON response in to your JSON object, then output the title, id, description, latitude, longitude, arrival, and departure to the textView (10 pt)
+- [x] in the viewDidLoad() function, call the URL https://lenczes.edumedia.ca/mad9137/final_api/passport/read/?id=, passing the location’s id to the end of the query (5 pt)
+- [x] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
+- [x] write a requestTask to process the server data and any errors that are received by the server, and send it to your callback function (5 pt)
+- [x] write a callback function that will process any errors if they exist and, if they don’t, process the response string from the server and serialize the JSON response in to your JSON object, then output the title, id, description, latitude, longitude, arrival, and departure to the textView (10 pt)
 
 ## AddViewController class (29 pt)
 

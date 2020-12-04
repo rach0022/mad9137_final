@@ -94,19 +94,20 @@ class PassportTableViewController: UITableViewController {
     
     // method to prepare for the segure to dequeue the proper cell to the  PassportInfoViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowPassportTable" {
+        if segue.identifier == "ShowPassportInfo" {
             let nextViewController = segue.destination as? InfoViewController
             
             // set the corresponding passport to the proper passport
+            // we have to check if passports and locations exist
             if let passports = self.jsonResponseObject {
                 if let locations = passports["locations"] {
+                    // get the indexPathRow value to be used to set the corresponding location to the next View controller
                     if let indexPathRow = tableView.indexPathForSelectedRow?.row {
+                        print("we are segueing to passport info")
                         nextViewController?.currentPassport = locations[indexPathRow]
                     }
                 }
             }
-//
-            
         }
     }
     
