@@ -1,7 +1,8 @@
 # MAD9137 Final - Passport Application in XCODE
 
 ## Bugs:
-- [ ] preform segue to 'ShowPassportTable' does not fire, may have to change logic
+- [x] preform segue to 'ShowPassportTable' does not fire, may have to change logic | SOLUTION: forgot to fire the task off the main thread
+- [ ] need to figure out way to change the initial root view of the final project from the splash screen to the table view
 
 ## Layout (21 pt)
 
@@ -25,19 +26,19 @@
 
 ## SplashViewController class (3 pt)
 
-- [ ] when this viewController loads, it will wait 3 seconds and then call the performSegue(withIdentifier, sender) function to segue to the tableView (3 pt)
+- [x] when this viewController loads, it will wait 3 seconds and then call the performSegue(withIdentifier, sender) function to segue to the tableView (3 pt)
 
 ## PassportTableView class (60 pt)
 
-- [ ] create an appropriate JSON object to hold the JSON data returned from https://lenczes.edumedia.ca/mad9137/final_api/passport/read/ (3 pt)
-- [ ] in the viewWillAppear(_ animated:Bool) function, make a URLRequest to https://lenczes.edumedia.ca/mad9137/final_api/passport/read/ calling a requestTask upon completion (5 pt)
-- [ ] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
-- [ ] write a requestTask to process the server data and any errors that are received by the server, and send it to your callback function (5 pt)
-- [ ] write a callback function that will process any errors if they exist and, if they don’t, process the response string from the server and serialize the JSON response in to your JSON object, then tell the tableView to reload the data (7 pt)
+- [x] create an appropriate JSON object to hold the JSON data returned from https://lenczes.edumedia.ca/mad9137/final_api/passport/read/ (3 pt)
+- [x] in the viewWillAppear(_ animated:Bool) function, make a URLRequest to https://lenczes.edumedia.ca/mad9137/final_api/passport/read/ calling a requestTask upon completion (5 pt)
+- [x] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
+- [x] write a requestTask to process the server data and any errors that are received by the server, and send it to your callback function (5 pt)
+- [x] write a callback function that will process any errors if they exist and, if they don’t, process the response string from the server and serialize the JSON response in to your JSON object, then tell the tableView to reload the data (7 pt)
 - [ ] override the tableView functions needed to populate the table with tableView cells, displaying the title stored in the JSON object (10 pt)
 - [ ] override the tableView function to allow the user to delete a location out of the table, and call a function that will make a URLRequest (3 pt)
 - [ ] write a function that takes an integer for an id parameter and calls the URL https://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id= , passing the location’s id to the end of the delete query to delete (6 pt)
-- [ ] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
+- [x] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
 - [ ] write a deleteRequestTask to process the server data and any errors that are received by the server, and send it to a deleteCallback function (5 pt)
 - [ ] write a deleteCallback function that will process any errors if they exist and, if they don’t, tell the tableView to reload its data (4 pt)
 - [ ] when the user clicks a cell in the table, the prepare( for Segue, sender) must pass the correct dictionary when segueing to the InfoViewController (4 pt)

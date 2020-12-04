@@ -17,11 +17,12 @@ class SplashViewController: UIViewController {
         // Because the SpalshView will just show the splash screen and launch the Application
         // we will just call the Indentifier 'ShowPassportTable' after 3 seconds by setting our timer
         // the Timer will file after 3 seconds never repeating and will fire the method callback defined below
-        self.splashTimer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.showPassportTableViewCallback), userInfo: nil, repeats: true)
+        self.splashTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.showPassportTableViewCallback), userInfo: nil, repeats: true)
         guard self.splashTimer != nil else {
             return // return early if the splashTimer was not set correctly
         }
-        self.splashTimer!.fire()
+//        self.splashTimer!.fire()
+        RunLoop.current.add(self.splashTimer!, forMode: RunLoop.Mode.default)
     }
     
     // method callback to preform the segue and disconnect the timer
@@ -34,7 +35,7 @@ class SplashViewController: UIViewController {
         self.splashTimer = nil
         
         // preform the segue
-        self.performSegue(withIdentifier: "ShowPassportTable", sender: nil)
+        self.performSegue(withIdentifier: "ShowPassportTable", sender: self)
         print("preforming segue to the navigation controller...")
        
     }
@@ -42,10 +43,16 @@ class SplashViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        if segue.identifier == "ShowPassportTable" {
+//            let nextViewController = segue.destination as? PassportTableViewController
+//            // preform any functionality I may need before switch views
+//            // like replacing the root view controller maybe?
+//            
+//        }
+//        
+//    }
 
 }

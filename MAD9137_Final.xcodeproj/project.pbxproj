@@ -16,6 +16,7 @@
 		43C53D8B2578947C00FF9AB0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D8A2578947C00FF9AB0 /* SplashViewController.swift */; };
 		43C53D8E2578949100FF9AB0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D8D2578949100FF9AB0 /* InfoViewController.swift */; };
 		43C53D912578949E00FF9AB0 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D902578949E00FF9AB0 /* AddViewController.swift */; };
+		43E58B562579CC8300974010 /* PassportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E58B552579CC8300974010 /* PassportTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		43C53D8A2578947C00FF9AB0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		43C53D8D2578949100FF9AB0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		43C53D902578949E00FF9AB0 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		43E58B552579CC8300974010 /* PassportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				43C53D8A2578947C00FF9AB0 /* SplashViewController.swift */,
 				43C53D8D2578949100FF9AB0 /* InfoViewController.swift */,
 				43C53D902578949E00FF9AB0 /* AddViewController.swift */,
+				43E58B552579CC8300974010 /* PassportTableViewCell.swift */,
 			);
 			path = MAD9137_Final;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				43C53D912578949E00FF9AB0 /* AddViewController.swift in Sources */,
 				43C53D742578914100FF9AB0 /* SceneDelegate.swift in Sources */,
 				43C53D8B2578947C00FF9AB0 /* SplashViewController.swift in Sources */,
+				43E58B562579CC8300974010 /* PassportTableViewCell.swift in Sources */,
 				43C53D8E2578949100FF9AB0 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

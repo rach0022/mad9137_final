@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextFieldDelegate {
     // the properties of the AddViewController
     // the outlets of the AddViewController
     @IBOutlet weak var passportTitleTextField: UITextField!
@@ -24,6 +24,18 @@ class AddViewController: UIViewController {
     
     // actions connected to the AddViewController
     @IBAction func savePassportBarButtonAction(_ sender: Any) {
+    }
+    
+    // to allow the user to press the return key to finish editing we implement this function
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passportTitleTextField.resignFirstResponder()
+        passportInfoTextView.resignFirstResponder()
+        return false
+    }
+    
+    // to allow the user to finish editing by pressing outside the text field we implement this method
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
 
