@@ -18,7 +18,7 @@ class PassportTableViewController: UITableViewController {
     // prep the URL request inside the viewWillAppear func so we have the data for
     // when the view loads
     override func viewWillAppear(_ animated: Bool) {
-        self.loadPassportData(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/")
+        self.createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
     }
     
     // when calling the view did load crate the table cells based on the jsonResponseObject
@@ -41,8 +41,8 @@ class PassportTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // using the size of the responseJSONArray we can determine the number of cells (rows)
-        if let jsonData = self.jsonResponseObject {
-            return jsonData.count
+        if let locations = self.jsonResponseObject?["locations"] {
+            return locations.count
         } else {
             return 0
         }
@@ -57,8 +57,6 @@ class PassportTableViewController: UITableViewController {
             if let locations = jsonData["locations"]{
                 // loop through the jsonData array to access the individual values
                 let title = locations[indexPath.row]["title"] as? String
-//                let arrival = locations[indexPath.row]["arrival"] as? String
-//                let departure = locations[indexPath.row]["departure"] as? String
                 
                 if let myCell = cell {
                     myCell.cellPassportTitle?.text = title
@@ -72,32 +70,60 @@ class PassportTableViewController: UITableViewController {
         return cell!
     }
     
+    // ********DOES NOT WORK AT THIS TIME ***************
     // Override to support editing the table view. This method will call the delete url for hte speicifci id of that table cell
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            // before we delete the cell lets send the request to the api to delete the cell
-//            // Delete the row from the data source
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // before we delete the cell lets send the request to the api to delete the cell
+            // after checking if we have a jsonResponseObject and the "locations" index we can pass in the id
+            // of the passport to the createPassportRequest function with an id
+            if let jsonData = self.jsonResponseObject as [String:[[String:Any]]]? {
+                if let locations = jsonData["locations"]{
+                    createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id=", id: locations[indexPath.row]["id"] as? Int)
+                }
+            }
+           
+            
+        }
+    }
     
     // the actions connected to the PassportTableViewController
     @IBAction func addPassportBarButtonAction(_ sender: Any) {
+        performSegue(withIdentifier: "ShowAddPassportForm", sender: self)
+    }
+    
+    // method to prepare for the segure to dequeue the proper cell to the  PassportInfoViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPassportTable" {
+            let nextViewController = segue.destination as? InfoViewController
+            
+            // set the corresponding passport to the proper passport
+            if let passports = self.jsonResponseObject {
+                if let locations = passports["locations"] {
+                    if let indexPathRow = tableView.indexPathForSelectedRow?.row {
+                        nextViewController?.currentPassport = locations[indexPathRow]
+                    }
+                }
+            }
+//
+            
+        }
     }
     
     // helper methods for the PAssportTableViewController
     // load passport data will take in the parameter of a string and will run the passportTask
     // the string being the specified url with any query parameters specified
     // based on the PlanetaryAPI iOS app from week 12
-    func loadPassportData(_url: String) {
+    func createPassportRequest(_url: String, id: Int?) {
+        // if there are params lets chain them onto the end of the url
+        let newURL = id != nil ? _url + "\(id!)" : _url
+        print(newURL)
         
         // Create the URLSession object that will be used to make the requests
         let mySession: URLSession = URLSession.shared
         
         // Write a url using the currentID to request the image data
-        let passportRequestUrl: URL = URL(string: "\(_url)")!
+        let passportRequestUrl: URL = URL(string: "\(newURL)")!
         
         // Create the request object and pass in your url
         var passportRequest: URLRequest = URLRequest(url: passportRequestUrl)
@@ -106,7 +132,7 @@ class PassportTableViewController: UITableViewController {
         passportRequest.addValue("rach0022", forHTTPHeaderField: "my-authentication")
         
         // Make the specific task from the session by passing in your image request, and the function that will be use to handle the image request
-        let passportTask = mySession.dataTask(with: passportRequest, completionHandler: self.passportRequestTask )
+        let passportTask = mySession.dataTask(with: passportRequest, completionHandler: id != nil ? self.deletePassportRequestTask : self.passportRequestTask )
         
         // Tell the image task to run
         passportTask.resume()
@@ -159,6 +185,37 @@ class PassportTableViewController: UITableViewController {
         DispatchQueue.main.async(){
             // update the UI
             self.tableView.reloadData()
+        }
+    }
+    
+    // method callback to deletePassportRequestTask that is called from the createPassportRequest when an id is supplied
+    func deletePassportRequestTask(serverData: Data?, serverResponse: URLResponse?, serverError: Error?) -> Void{
+        if serverError != nil {
+            // Send en empty string as the data, and the error to the callback function
+            print("PASSPORT DELETION ERROR: " + serverError!.localizedDescription)
+            self.asyncDeletePassportCallback(responseString: "", error: serverError!.localizedDescription)
+        }else{
+            // if no error was generated that means we have a response that we will stringify into
+            // our jsonResponseObject and call our asyncronous callback
+            let response = String(data: serverData!, encoding: .utf8)!
+            self.asyncDeletePassportCallback(responseString: response as String, error: nil)
+            
+        }
+    }
+    
+    // method callback to delete the passport and reload the tableView passport json object
+    func asyncDeletePassportCallback(responseString: String, error: String?){
+        
+        // if the server request generate an error than lets handle it
+        if error != nil {
+            print("Error from API... handle it")
+        } else {
+            print("Response Successful from the API" + responseString)
+        }
+        
+        DispatchQueue.main.async(){
+            // update the UI
+            self.createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
         }
     }
     

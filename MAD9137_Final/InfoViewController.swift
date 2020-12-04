@@ -9,6 +9,8 @@ import UIKit
 
 class InfoViewController: UIViewController {
     // The properties for the InfoViewController
+    var currentPassport : [String: Any]?
+    
     // The outlets for the InfoViewController
     @IBOutlet weak var passportInfoTextView: UITextView!
     

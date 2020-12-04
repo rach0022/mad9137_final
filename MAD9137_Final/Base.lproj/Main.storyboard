@@ -52,7 +52,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="ako-nb-3GN" kind="show" identifier="ShowPassportForm" id="Hpa-33-c6Q"/>
+                        <segue destination="ako-nb-3GN" kind="show" identifier="ShowAddPassportForm" id="Hpa-33-c6Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ov9-yx-6CC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
