@@ -35,7 +35,7 @@ class SplashViewController: UIViewController {
         self.splashTimer = nil
         
         // preform the segue
-        self.performSegue(withIdentifier: "ShowPassportTable", sender: self)
+        self.performSegue(withIdentifier: "ShowPassportCollection", sender: self)
         print("preforming segue to the navigation controller...")
        
     }

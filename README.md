@@ -1,10 +1,12 @@
 # MAD9137 Final - Passport Application in XCODE
 
 ## Bugs:
+
 - [x] preform segue to 'ShowPassportTable' does not fire, may have to change logic | SOLUTION: forgot to fire the task off the main thread
 - [ ] need to figure out way to change the initial root view of the final project from the splash screen to the table view
-- [x] cannot display the latitude or the longitude of any cell but can display the rest of the cell info in a multiline string 
+- [x] cannot display the latitude or the longitude of any cell but can display the rest of the cell info in a multiline string
 - [x] check how form values are read into the url request task and then test the request | solution had to use addingPercentEncoding to allow characters like quotations and curly braces
+- [ ] collection view cells are aligned all over the place with the buttons either showing above or below the title ...
 
 ## Layout (21 pt)
 
@@ -33,7 +35,7 @@
 ## PassportTableView class (60 pt)
 
 - [x] create an appropriate JSON object to hold the JSON data returned from https://lenczes.edumedia.ca/mad9137/final_api/passport/read/ (3 pt)
-- [x] in the viewWillAppear(_ animated:Bool) function, make a URLRequest to https://lenczes.edumedia.ca/mad9137/final_api/passport/read/ calling a requestTask upon completion (5 pt)
+- [x] in the viewWillAppear(\_ animated:Bool) function, make a URLRequest to https://lenczes.edumedia.ca/mad9137/final_api/passport/read/ calling a requestTask upon completion (5 pt)
 - [x] within your URLRequest, you must add value to the URL’s header for the key “my-authentication”, and pass in the first 8 characters of your school’s email address (e.g. lenc0001) as the value (3 pt)
 - [x] write a requestTask to process the server data and any errors that are received by the server, and send it to your callback function (5 pt)
 - [x] write a callback function that will process any errors if they exist and, if they don’t, process the response string from the server and serialize the JSON response in to your JSON object, then tell the tableView to reload the data (7 pt)
@@ -65,6 +67,7 @@
 
 ## Quality Control (29 pt)
 
+- [x] use a custom collectionView design instead of using a tableView (9 pt)
 - [ ] add appropriate constraints to all UI objects in the regular viewControllers (10 pt)
 - [ ] application runs without errors (10 pt)
 - [ ] code is well-written and commented thoroughly (9 pt)
@@ -72,6 +75,7 @@
 * Total: 180 pt
 
 ## Submission
+
 - [ ] Submit a .zip file of your assignment through Brightspace.
 - [ ] Use the following naming convention for submissions:
 - [ ] username_assignment-title.zip or for example lenc0001_mid-term.zip

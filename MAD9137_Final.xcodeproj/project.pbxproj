@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4383A024257D4BD600B3ED18 /* PassportInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383A023257D4BD600B3ED18 /* PassportInfo.swift */; };
+		4383A027257D4C4E00B3ED18 /* PassportCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383A026257D4C4E00B3ED18 /* PassportCollectionViewController.swift */; };
+		4383A02A257D4C9400B3ED18 /* PassportCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383A029257D4C9400B3ED18 /* PassportCollectionViewCell.swift */; };
 		43C53D722578914100FF9AB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D712578914100FF9AB0 /* AppDelegate.swift */; };
 		43C53D742578914100FF9AB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D732578914100FF9AB0 /* SceneDelegate.swift */; };
 		43C53D792578914100FF9AB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C53D772578914100FF9AB0 /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4383A023257D4BD600B3ED18 /* PassportInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportInfo.swift; sourceTree = "<group>"; };
+		4383A026257D4C4E00B3ED18 /* PassportCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCollectionViewController.swift; sourceTree = "<group>"; };
+		4383A029257D4C9400B3ED18 /* PassportCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportCollectionViewCell.swift; sourceTree = "<group>"; };
 		43C53D6E2578914100FF9AB0 /* MAD9137_Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAD9137_Final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43C53D712578914100FF9AB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43C53D732578914100FF9AB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 				43C53D8D2578949100FF9AB0 /* InfoViewController.swift */,
 				43C53D902578949E00FF9AB0 /* AddViewController.swift */,
 				43E58B552579CC8300974010 /* PassportTableViewCell.swift */,
+				4383A023257D4BD600B3ED18 /* PassportInfo.swift */,
+				4383A026257D4C4E00B3ED18 /* PassportCollectionViewController.swift */,
+				4383A029257D4C9400B3ED18 /* PassportCollectionViewCell.swift */,
 			);
 			path = MAD9137_Final;
 			sourceTree = "<group>";
@@ -149,11 +158,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4383A02A257D4C9400B3ED18 /* PassportCollectionViewCell.swift in Sources */,
 				43C53D88257893BA00FF9AB0 /* PassportTableViewController.swift in Sources */,
 				43C53D722578914100FF9AB0 /* AppDelegate.swift in Sources */,
 				43C53D912578949E00FF9AB0 /* AddViewController.swift in Sources */,
 				43C53D742578914100FF9AB0 /* SceneDelegate.swift in Sources */,
 				43C53D8B2578947C00FF9AB0 /* SplashViewController.swift in Sources */,
+				4383A027257D4C4E00B3ED18 /* PassportCollectionViewController.swift in Sources */,
+				4383A024257D4BD600B3ED18 /* PassportInfo.swift in Sources */,
 				43E58B562579CC8300974010 /* PassportTableViewCell.swift in Sources */,
 				43C53D8E2578949100FF9AB0 /* InfoViewController.swift in Sources */,
 			);
