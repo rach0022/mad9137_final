@@ -7,6 +7,8 @@
 - [x] cannot display the latitude or the longitude of any cell but can display the rest of the cell info in a multiline string
 - [x] check how form values are read into the url request task and then test the request | solution had to use addingPercentEncoding to allow characters like quotations and curly braces
 - [ ] collection view cells are aligned all over the place with the buttons either showing above or below the title ...
+- [ ] SSL certificate has expired, maybe I am =sending the auth credentials wrong | ERROR: An SSL error has occurred and a secure connection to the server cannot be made.
+Error from API... handle it
 
 ## Layout (21 pt)
 
