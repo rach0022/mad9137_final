@@ -3,7 +3,9 @@
 ## Bugs:
 - [x] preform segue to 'ShowPassportTable' does not fire, may have to change logic | SOLUTION: forgot to fire the task off the main thread
 - [ ] need to figure out way to change the initial root view of the final project from the splash screen to the table view
-- [ ] cannot display the latitude or the longitude of any cell but can display the rest of the cell info in a multiline string 
+- [x] cannot display the latitude or the longitude of any cell but can display the rest of the cell info in a multiline string 
+- [x] check how form values are read into the url request task and then test the request | solution had to use addingPercentEncoding to allow characters like quotations and curly braces
+
 ## Layout (21 pt)
 
 - [x] create a tableViewController, a tableViewController class file, and assign the class to the tableView in the storyboard (3pt)
@@ -57,7 +59,7 @@
 - [ ] import CoreLocation framework, and create a CLLocationManager object (2 pt)
 - [x] in the touchesBegan function, hide the keyboards (2 pt)
 - [x] “Save” barButtonItem action must hide the keyboards (1 pt)
-- [ ] if the textField has text entered in it, the “Save” action will make a URLRequest to the following URI https://lenczes.edumedia.ca/mad9137/final_api/passport/create/?data=, concatenating the outlet’s values converted to a JSON string on to the end of the URL (15 pt)
+- [x] if the textField has text entered in it, the “Save” action will make a URLRequest to the following URI https://lenczes.edumedia.ca/mad9137/final_api/passport/create/?data=, concatenating the outlet’s values converted to a JSON string on to the end of the URL (15 pt)
 - [x] write an addRequestTask to process the server data and any errors that are received by the server, and send it to the addCallback function (5 pt)
 - [x] write an addCallback function that will process any errors if they exist and, if they don’t, tell the navigationController to popToRootViewController (4 pt)
 

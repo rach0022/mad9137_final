@@ -24,8 +24,33 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     
     // actions connected to the AddViewController
     @IBAction func savePassportBarButtonAction(_ sender: Any) {
+        // close any keyboards that may be open by the text field or view
         passportTitleTextField.resignFirstResponder()
         passportInfoTextView.resignFirstResponder()
+        
+        // get the form values
+//        if let name = eventNameTextField.text, let description = eventDescriptionTextView.text
+        // get the values from the text view and text field if they are set
+        if let title = passportTitleTextField.text, let description = passportInfoTextView.text{
+            // grab the values of the dates
+            let arrivalDate = passportArrivalDatePicker.date
+            let departureDate = passportDepartureDatePicker.date
+            
+            var values : [[String: String]] = []
+            values.append(["title":title])
+            values.append(["description":description])
+            values.append(["arrival":arrivalDate.description])
+            values.append(["departure":departureDate.description])
+            values.append(["latitude":"0"]) // change later
+            values.append(["longitude":"0"]) // change later
+            
+            // create the passport request if the title field is not empty
+            if !title.isEmpty{
+                self.addPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/create/?data=", formValues: values)
+            }
+        }
+        
+        
     }
     
     // to allow the user to press the return key to finish editing we implement this function
@@ -41,24 +66,33 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     }
     
     // mehtod to craeate an add parrport request
-    func addPassportRequest(_url: String, formValues: [String:String]?) {
+    func addPassportRequest(_url: String, formValues: [[String:String]]?) {
         // if there are params lets chain them onto the end of the url
-        var newURL = _url
+        var json = ""
         // check if params exist and then lets loop through them and chain them onto the  url as the data params
         if let params = formValues {
-            newURL += "{" // add the opening curly brace
-            for (key, val) in params {
-                newURL += "\"\(key)\":\"\(val)\"" // make sure to add quotations using \" \"
+            json += "{" // add the opening curly brace
+            for (index, value) in params.enumerated() {
+                if let key = value.keys.first, let input = value.values.first {
+                    // check to make sure if we are not on the last iteration of the loop
+                    // so we do not add a comma at the end of the json and then also
+                    // make sure to add quotations using \" \"
+                    json += index < params.count - 1 ? "\"\(key)\":\"\(input)\", " :"\"\(key)\":\"\(input)\""
+                    
+                }
             }
-            newURL += "}" // add closing brace
+            json += "}" // add closing brace
         }
-        print(newURL)
+        // now encode the payload becuase certain characters are illegal in the URL init(string)
+        // operation we have to use the funciton of addingPercentEncoding to allow our URL to be legal
+        let encodedPayload = json.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
+        print(encodedPayload)
         
         // Create the URLSession object that will be used to make the requests
         let mySession: URLSession = URLSession.shared
         
         // Write a url using the currentID to request the image data
-        let passportRequestUrl: URL = URL(string: "\(newURL)")!
+        let passportRequestUrl: URL = URL(string: "\(_url)\(encodedPayload)")!
         
         // Create the request object and pass in your url
         var passportRequest: URLRequest = URLRequest(url: passportRequestUrl)
