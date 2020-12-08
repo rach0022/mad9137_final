@@ -18,7 +18,7 @@ class PassportTableViewController: UITableViewController {
     // prep the URL request inside the viewWillAppear func so we have the data for
     // when the view loads
     override func viewWillAppear(_ animated: Bool) {
-        self.createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
+        self.createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
     }
     
     // when calling the view did load crate the table cells based on the jsonResponseObject
@@ -79,7 +79,7 @@ class PassportTableViewController: UITableViewController {
             // of the passport to the createPassportRequest function with an id
             if let jsonData = self.jsonResponseObject as [String:[[String:Any]]]? {
                 if let locations = jsonData["locations"]{
-                    createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id=", id: locations[indexPath.row]["id"] as? Int)
+                    createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id=", id: locations[indexPath.row]["id"] as? Int)
                 }
             }
            
@@ -216,7 +216,7 @@ class PassportTableViewController: UITableViewController {
         
         DispatchQueue.main.async(){
             // update the UI
-            self.createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
+            self.createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
         }
     }
     

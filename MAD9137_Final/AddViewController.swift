@@ -46,7 +46,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             
             // create the passport request if the title field is not empty
             if !title.isEmpty{
-                self.addPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/create/?data=", formValues: values)
+                self.addPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/create/?data=", formValues: values)
             }
         }
         

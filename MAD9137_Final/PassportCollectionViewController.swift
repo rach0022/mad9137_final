@@ -20,7 +20,7 @@ class PassportCollectionViewController: UICollectionViewController {
     // prep the URL request inside the viewWillAppear func so we have the data for
     // when the view loads
     override func viewWillAppear(_ animated: Bool) {
-        self.createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
+        self.createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
     }
     
     override func viewDidLoad() {
@@ -225,7 +225,7 @@ class PassportCollectionViewController: UICollectionViewController {
         
         DispatchQueue.main.async(){
             // update the UI
-            self.createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
+            self.createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/read/", id: nil)
         }
     }
 

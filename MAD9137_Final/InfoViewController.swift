@@ -21,7 +21,7 @@ class InfoViewController: UIViewController {
         // Do any additional setup after loading the view.
         if let passport = self.currentPassport {
             print(passport)
-            self.createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/read/?id=", id: passport["id"] as! Int)
+            self.createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/read/?id=", id: passport["id"] as! Int)
         }
     }
     
