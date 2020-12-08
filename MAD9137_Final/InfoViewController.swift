@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class InfoViewController: UIViewController {
     // The properties for the InfoViewController
@@ -107,7 +108,9 @@ class InfoViewController: UIViewController {
                     Departure:
                     \(jsonResponse["departure"] as! String)
                     Latitude:
+                    \(jsonResponse["latitude"] as! CLLocationDegrees)
                     Longitutde:
+                    \(jsonResponse["longitude"] as! CLLocationDegrees)
                     """
             }
             

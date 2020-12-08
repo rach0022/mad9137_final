@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import CoreLocation // used for location access
 
-class AddViewController: UIViewController, UITextFieldDelegate {
+class AddViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     // the properties of the AddViewController
+    // Create a CLLocationManager object used to get location for passport
+    var addPassportLocationManager = CLLocationManager()
+
     // the outlets of the AddViewController
     @IBOutlet weak var passportTitleTextField: UITextField!
     @IBOutlet weak var passportInfoTextView: UITextView!
@@ -19,8 +23,30 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Set the locationManager delegate
+        self.addPassportLocationManager.delegate = self
+
+        // Request authorization from user to access location
+        self.addPassportLocationManager.requestWhenInUseAuthorization()
     }
+    
+    // check if the user has allowed permission and if he has not allowed permission
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        // Switch on the state of the authorization to decide what to do.
+        switch(CLLocationManager.authorizationStatus()) {
+        case .restricted, .notDetermined, .denied :
+            // If the user has not allowed access stop all updating.
+            self.addPassportLocationManager.stopUpdatingLocation()
+        case .authorizedWhenInUse,  .authorizedAlways :
+            // If the user has allowed access start updating the location of the device.
+            self.addPassportLocationManager.startUpdatingLocation()
+            print("Updating access Location Manager")
+        @unknown default:
+            // Manage any future states to be exhaustive.
+            print("ERROR: Unable to access Location Manager")
+        }
+    }
+
     
     // actions connected to the AddViewController
     @IBAction func savePassportBarButtonAction(_ sender: Any) {
@@ -41,8 +67,20 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             values.append(["description":description])
             values.append(["arrival":arrivalDate.description])
             values.append(["departure":departureDate.description])
-            values.append(["latitude":"0"]) // change later
-            values.append(["longitude":"0"]) // change later
+            
+            // now lets get the users latitude and longitude, if they do not allow access lets just give (0, 0)
+            // Get the current location values if they are set
+            if let location = self.addPassportLocationManager.location {
+                values.append(["latitude":"\(location.coordinate.latitude)"])
+                values.append(["longitude":"\(location.coordinate.longitude)"])
+                let newLatitude = location.coordinate.latitude
+                let newLongitude = location.coordinate.longitude
+                print(newLatitude, newLongitude, values)
+           }else {
+                values.append(["latitude":"0"]) // default if not supplied
+                values.append(["longitude":"0"])
+           }
+           
             
             // create the passport request if the title field is not empty
             if !title.isEmpty{
