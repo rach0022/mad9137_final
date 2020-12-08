@@ -14,7 +14,7 @@
             <objects>
                 <tableViewController id="C9m-T3-OfB" customClass="PassportTableViewController" customModule="MAD9137_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Qgy-I1-ptq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -36,6 +36,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellPassportTitle" destination="Iey-KQ-k0i" id="dej-Rh-HeT"/>
+                                    <segue destination="cfC-oO-g3G" kind="show" identifier="ShowPassportInfo" id="Xws-1X-pfJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -48,6 +49,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Add" id="bjO-sH-EMJ">
                             <connections>
                                 <action selector="addPassportBarButtonAction:" destination="C9m-T3-OfB" id="ltj-oQ-V96"/>
+                                <segue destination="ako-nb-3GN" kind="show" identifier="ShowAddPassportForm" id="Fe6-Ah-qgE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -61,7 +63,7 @@
             <objects>
                 <viewController id="cfC-oO-g3G" customClass="InfoViewController" customModule="MAD9137_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBj-10-3eX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ujD-5R-GRz">
@@ -134,7 +136,6 @@
                                 <size key="customSize" width="338" height="125"/>
                                 <connections>
                                     <outlet property="cellPassportTitle" destination="rbn-rh-16M" id="nP8-Kl-IFo"/>
-                                    <segue destination="cfC-oO-g3G" kind="show" identifier="ShowPassportInfo" id="f8N-BA-N5K"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -144,6 +145,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="oMd-2c-RMJ">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Xdf-8s-YbT">
+                            <connections>
+                                <action selector="editBarButtonAction:" destination="TZR-Mk-9rl" id="XGV-qD-Cas"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="ZSa-sw-8Ux">
                             <connections>
                                 <action selector="addPassportBarButtonAction:" destination="TZR-Mk-9rl" id="3yD-j9-XDf"/>
@@ -151,6 +157,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="editBarButtonItem" destination="Xdf-8s-YbT" id="rsX-Xz-AZM"/>
+                        <segue destination="cfC-oO-g3G" kind="show" identifier="ShowPassportInfo" id="4fR-nQ-zo6"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCb-88-ANm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,17 +171,11 @@
             <objects>
                 <viewController id="ako-nb-3GN" customClass="AddViewController" customModule="MAD9137_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nO1-Zm-kvQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-L1-Qoe">
-                                <rect key="frame" x="66" y="68" width="283" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Passport description" translatesAutoresizingMaskIntoConstraints="NO" id="CLi-Kr-pRM">
-                                <rect key="frame" x="29" y="169" width="365" height="161"/>
+                                <rect key="frame" x="29" y="191" width="365" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -179,34 +183,40 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GaH-p9-qHg">
-                                <rect key="frame" x="-11" y="385" width="414" height="180"/>
+                                <rect key="frame" x="0.0" y="400" width="414" height="180"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="siL-JK-IXe">
-                                <rect key="frame" x="0.0" y="600" width="414" height="180"/>
+                                <rect key="frame" x="0.0" y="657" width="414" height="180"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiY-rp-amx">
-                                <rect key="frame" x="29" y="551" width="298" height="52"/>
+                                <rect key="frame" x="29" y="588" width="298" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passport Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loY-Lk-jgk">
-                                <rect key="frame" x="29" y="110" width="298" height="53"/>
+                                <rect key="frame" x="20" y="130" width="298" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arrival Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-fa-zjt">
-                                <rect key="frame" x="29" y="336" width="242" height="41"/>
+                                <rect key="frame" x="29" y="351" width="242" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-L1-Qoe">
+                                <rect key="frame" x="66" y="98" width="283" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c9G-RW-BgS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -250,6 +260,7 @@
                     </view>
                     <connections>
                         <segue destination="ehF-gG-SYA" kind="presentation" identifier="ShowPassportCollection" modalPresentationStyle="fullScreen" id="KxG-t6-Nlp"/>
+                        <segue destination="GTk-dq-C9b" kind="presentation" identifier="ShowPassportTable" id="mfW-zg-3Eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRT-Gx-La0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -263,7 +274,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="RSj-gw-Jsp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jSp-Zd-4PA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -295,6 +306,10 @@
             <point key="canvasLocation" x="251" y="-38"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fe6-Ah-qgE"/>
+        <segue reference="Xws-1X-pfJ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -67,7 +67,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, CLLocationManage
             values.append(["description":description])
             values.append(["arrival":arrivalDate.description])
             values.append(["departure":departureDate.description])
-            
             // now lets get the users latitude and longitude, if they do not allow access lets just give (0, 0)
             // Get the current location values if they are set
             if let location = self.addPassportLocationManager.location {

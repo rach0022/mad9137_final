@@ -17,6 +17,7 @@ class PassportCollectionViewController: UICollectionViewController {
     // to an array of string:Any pairs
     var jsonResponseObject : [String:[[String:Any]]]?
     let mobileBreakpoint: CGFloat = 768 // based on mobile pixel breakpoint
+    @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
     
     // methods for the PassportCollectionViewController
     // prep the URL request inside the viewWillAppear func so we have the data for
@@ -92,10 +93,23 @@ class PassportCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath)
         selectedCell!.contentView.backgroundColor = selectedCellColour
+        if editBarButtonItem.title == "Info" { // we want to delete the item
+            // after checking if we have a jsonResponseObject and the "locations" index we can pass in the id
+            // of the passport to the createPassportRequest function with an id
+            let row = indexPath.row
+            if let jsonData = self.jsonResponseObject as [String:[[String:Any]]]? {
+                if let locations = jsonData["locations"]{
+                    createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id=", id: locations[row]["id"] as? Int)
+                }
+            }
+        } else {
+            performSegue(withIdentifier: "ShowPassportInfo", sender: self)
+        }
     }
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath)
         selectedCell!.contentView.backgroundColor = cellColour
+        
     }
 
 
@@ -107,15 +121,17 @@ class PassportCollectionViewController: UICollectionViewController {
     }
     // action that will delete the passport item
     @IBAction func deletePassportButtonAction(_ sender: Any) {
-        // after checking if we have a jsonResponseObject and the "locations" index we can pass in the id
-        // of the passport to the createPassportRequest function with an id
-//        let indexPath = collectionView.indexPathsForSelectedItems![0]
-//        if let jsonData = self.jsonResponseObject as [String:[[String:Any]]]? {
-//            if let locations = jsonData["locations"]{
-//                createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id=", id: locations[indexPath.row]["id"] as? Int)
-//            }
-//        }
+        
     }
+    
+    // this action will alow the user to delete any selected cells
+    @IBAction func editBarButtonAction(_ sender: Any) {
+        // will change the text of the barButtonItem to info
+        // or edit, if text is edit that means we are going to segue
+        // if not then we are going to delete the pushed cells
+        editBarButtonItem.title = editBarButtonItem.title == "Edit" ? "Info" : "Edit"
+    }
+    
     // method to prepare for the segure to dequeue the proper cell to the  PassportInfoViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowPassportInfo" {

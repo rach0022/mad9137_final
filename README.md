@@ -2,7 +2,7 @@
 
 ## To Do:
 - [x] change to unsecure http protocol
-- [ ] find a way for the user to select the cell with the existing code and delte the cell
+- [x] find a way for the user to select the cell with the existing code and delte the cell
 - [ ] add core location framework | mostly added need to figure out why values arent being read 
 
 ## Bugs:

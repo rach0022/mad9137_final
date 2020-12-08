@@ -36,6 +36,7 @@ class SplashViewController: UIViewController {
         
         // preform the segue
         self.performSegue(withIdentifier: "ShowPassportCollection", sender: self)
+//        self.performSegue(withIdentifier: "ShowPassportTable", sender: self)
         print("preforming segue to the navigation controller...")
        
     }
