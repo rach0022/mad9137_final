@@ -8,6 +8,8 @@
 import UIKit
 // the reference to our reuseIdentifier for the passport Table Cells
 private let reuseIdentifier = "PassportCollectionCell"
+private var cellColour: UIColor = UIColor.systemGray5
+private var selectedCellColour: UIColor = UIColor.systemBlue
 
 class PassportCollectionViewController: UICollectionViewController {
     // The properties of the Passport CollectionViewController
@@ -77,13 +79,26 @@ class PassportCollectionViewController: UICollectionViewController {
                 
                 if let myCell = cell {
                     myCell.cellPassportTitle?.text = title
-                    
+                    // set the default cell colour:
+                    myCell.contentView.backgroundColor = cellColour
                 }
             }
         }
     
         return cell! // have to force unwrap, why? Ask about this.
     }
+    
+    // override the selection cell methods
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedCell = collectionView.cellForItem(at: indexPath)
+        selectedCell!.contentView.backgroundColor = selectedCellColour
+    }
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let selectedCell = collectionView.cellForItem(at: indexPath)
+        selectedCell!.contentView.backgroundColor = cellColour
+    }
+
+
     
     // the actions connected to the PAssportCollectionViewController
     

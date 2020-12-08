@@ -1,5 +1,10 @@
 # MAD9137 Final - Passport Application in XCODE
 
+## To Do:
+- [x] change to unsecure http protocol
+- [ ] find a way for the user to select the cell with the existing code and delte the cell
+- [ ] add core location framework 
+
 ## Bugs:
 
 - [x] preform segue to 'ShowPassportTable' does not fire, may have to change logic | SOLUTION: forgot to fire the task off the main thread
