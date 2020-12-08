@@ -10,6 +10,7 @@ import UIKit
 private let reuseIdentifier = "PassportCollectionCell"
 private var cellColour: UIColor = UIColor.systemGray5
 private var selectedCellColour: UIColor = UIColor.systemBlue
+private var deletedCellColour: UIColor = UIColor.systemRed
 
 class PassportCollectionViewController: UICollectionViewController {
     // The properties of the Passport CollectionViewController
@@ -92,10 +93,11 @@ class PassportCollectionViewController: UICollectionViewController {
     // override the selection cell methods
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath)
-        selectedCell!.contentView.backgroundColor = selectedCellColour
+        
         if editBarButtonItem.title == "Info" { // we want to delete the item
             // after checking if we have a jsonResponseObject and the "locations" index we can pass in the id
             // of the passport to the createPassportRequest function with an id
+            selectedCell!.contentView.backgroundColor = deletedCellColour // show the red deletion colour
             let row = indexPath.row
             if let jsonData = self.jsonResponseObject as [String:[[String:Any]]]? {
                 if let locations = jsonData["locations"]{
@@ -103,6 +105,7 @@ class PassportCollectionViewController: UICollectionViewController {
                 }
             }
         } else {
+            selectedCell!.contentView.backgroundColor = selectedCellColour
             performSegue(withIdentifier: "ShowPassportInfo", sender: self)
         }
     }

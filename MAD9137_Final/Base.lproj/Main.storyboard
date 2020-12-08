@@ -63,7 +63,7 @@
             <objects>
                 <viewController id="cfC-oO-g3G" customClass="InfoViewController" customModule="MAD9137_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jBj-10-3eX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ujD-5R-GRz">
@@ -97,43 +97,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kDT-BL-QZM">
-                            <size key="itemSize" width="338" height="125"/>
+                            <size key="itemSize" width="338" height="71"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="PassportCollectionCell" id="8GX-Yh-cAe" customClass="PassportCollectionViewCell" customModule="MAD9137_Final" customModuleProvider="target">
-                                <rect key="frame" x="38" y="0.0" width="338" height="125"/>
+                                <rect key="frame" x="38" y="0.0" width="338" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8sg-jB-kb9">
-                                    <rect key="frame" x="0.0" y="0.0" width="338" height="125"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="338" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbn-rh-16M">
-                                            <rect key="frame" x="26" y="20" width="196" height="21"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <rect key="frame" x="26" y="8" width="274" height="55"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="55" id="yLT-Zq-ati"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-nL-iDb">
-                                            <rect key="frame" x="8" y="76" width="55" height="30"/>
-                                            <state key="normal" title="DELETE"/>
-                                            <connections>
-                                                <action selector="deletePassportButtonAction:" destination="TZR-Mk-9rl" eventType="touchUpInside" id="yVd-Xa-4ww"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="rbn-rh-16M" secondAttribute="trailing" constant="116" id="9M0-vz-zMn"/>
-                                        <constraint firstItem="rbn-rh-16M" firstAttribute="leading" secondItem="8sg-jB-kb9" secondAttribute="leading" constant="26" id="KxH-WU-PEH"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KmL-nL-iDb" secondAttribute="trailing" constant="20" symbolic="YES" id="L2U-n9-1UB"/>
-                                        <constraint firstItem="KmL-nL-iDb" firstAttribute="leading" secondItem="8sg-jB-kb9" secondAttribute="leading" constant="8" id="LoW-7H-ncS"/>
-                                        <constraint firstItem="rbn-rh-16M" firstAttribute="top" secondItem="8sg-jB-kb9" secondAttribute="top" constant="20" symbolic="YES" id="Qfe-62-JFc"/>
-                                        <constraint firstAttribute="bottom" secondItem="KmL-nL-iDb" secondAttribute="bottom" constant="19" id="tf6-Rl-MRZ"/>
+                                        <constraint firstItem="rbn-rh-16M" firstAttribute="top" secondItem="8sg-jB-kb9" secondAttribute="top" constant="8" id="JW2-wl-TEp"/>
+                                        <constraint firstAttribute="trailing" secondItem="rbn-rh-16M" secondAttribute="trailing" constant="38" id="a8k-Mx-MeI"/>
+                                        <constraint firstItem="rbn-rh-16M" firstAttribute="leading" secondItem="8sg-jB-kb9" secondAttribute="leading" constant="26" id="tjO-DQ-V5j"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="338" height="125"/>
+                                <size key="customSize" width="338" height="71"/>
                                 <connections>
                                     <outlet property="cellPassportTitle" destination="rbn-rh-16M" id="nP8-Kl-IFo"/>
                                 </connections>
@@ -171,7 +164,7 @@
             <objects>
                 <viewController id="ako-nb-3GN" customClass="AddViewController" customModule="MAD9137_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nO1-Zm-kvQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Passport description" translatesAutoresizingMaskIntoConstraints="NO" id="CLi-Kr-pRM">
@@ -307,8 +300,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fe6-Ah-qgE"/>
-        <segue reference="Xws-1X-pfJ"/>
+        <segue reference="vlF-d4-yjb"/>
+        <segue reference="4fR-nQ-zo6"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

@@ -4,6 +4,8 @@
 - [x] change to unsecure http protocol
 - [x] find a way for the user to select the cell with the existing code and delte the cell
 - [ ] add core location framework | mostly added need to figure out why values arent being read 
+- [x] show red when deleting a cell
+- [ ] add a deletion icon to indicate that you are deleting an item
 
 ## Bugs:
 
@@ -13,6 +15,7 @@
 - [x] check how form values are read into the url request task and then test the request | solution had to use addingPercentEncoding to allow characters like quotations and curly braces
 - [ ] collection view cells are aligned all over the place with the buttons either showing above or below the title ...
 - [x]  SSL certificate has expired, maybe I am =sending the auth credentials wrong | ERROR: An SSL error has occurred and a secure connection to the server cannot be made. Error from API... handle it | SOLUTION: Change to unsecure http protocol because the security certificate expired on the server 
+- [ ] clicking on a cell with no info set will crash the prgram, must add guard statements
 
 ## Layout (21 pt)
 
