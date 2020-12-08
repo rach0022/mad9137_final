@@ -8,7 +8,7 @@
 ## Bugs:
 
 - [x] preform segue to 'ShowPassportTable' does not fire, may have to change logic | SOLUTION: forgot to fire the task off the main thread
-- [ ] need to figure out way to change the initial root view of the final project from the splash screen to the table view
+- [x] need to figure out way to change the initial root view of the final project from the splash screen to the table view | SOLUTION: Changed segue to present modally and presentation mode to full screen
 - [x] cannot display the latitude or the longitude of any cell but can display the rest of the cell info in a multiline string
 - [x] check how form values are read into the url request task and then test the request | solution had to use addingPercentEncoding to allow characters like quotations and curly braces
 - [ ] collection view cells are aligned all over the place with the buttons either showing above or below the title ...

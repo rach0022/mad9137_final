@@ -112,7 +112,7 @@ class PassportCollectionViewController: UICollectionViewController {
 //        let indexPath = collectionView.indexPathsForSelectedItems![0]
 //        if let jsonData = self.jsonResponseObject as [String:[[String:Any]]]? {
 //            if let locations = jsonData["locations"]{
-//                createPassportRequest(_url: "https://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id=", id: locations[indexPath.row]["id"] as? Int)
+//                createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/delete/?id=", id: locations[indexPath.row]["id"] as? Int)
 //            }
 //        }
     }
