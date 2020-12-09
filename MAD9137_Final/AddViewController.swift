@@ -84,6 +84,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, CLLocationManage
             // create the passport request if the title field is not empty
             if !title.isEmpty{
                 self.addPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/create/?data=", formValues: values)
+                print("VALUES: \(values)")
             }
         }
         
@@ -147,10 +148,24 @@ class AddViewController: UIViewController, UITextFieldDelegate, CLLocationManage
     
     // method to run the addPassportRequestTask
     func addPassportRequestTask(serverData: Data?, serverResponse: URLResponse?, serverError: Error?) -> Void{
-        if serverError != nil {
+        if let error = serverError {
             // Send en empty string as the data, and the error to the callback function
-            print("PASSPORT CREATION ERROR: " + serverError!.localizedDescription)
-            self.asyncCreatePassportCallback(responseString: "", error: serverError!.localizedDescription)
+            print("PASSPORT CREATION ERROR: " + error.localizedDescription)
+            // how to show the alert must implement on main thread so we need to modify the error callback
+//            // Create a new UIAlertController object with a custom title and message
+//            let myAlert:UIAlertController = UIAlertController(title: "Passport Creation Fail", message: "PASSPORT CREATION ERROR: \(error.localizedDescription)", preferredStyle: UIAlertController.Style.alert)
+//
+//            // Create an 'OK' Button to close the alert
+//            let myAction:UIAlertAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)
+//
+//            // Add the Button to the Alert
+//            myAlert.addAction(myAction)
+//
+//            // Show the alert
+//            self.present(myAlert, animated: true, completion: nil)
+            
+            // call our async acll back with the error
+            self.asyncCreatePassportCallback(responseString: "", error: error.localizedDescription)
         }else{
             // if no error was generated that means we have a response that we will stringify into
             // our jsonResponseObject and call our asyncronous callback
@@ -163,8 +178,8 @@ class AddViewController: UIViewController, UITextFieldDelegate, CLLocationManage
     // asyncronus callback for the addPassportRequestTask
     func asyncCreatePassportCallback(responseString: String, error: String?){
         // if the server request generate an error than lets handle it
-        if error != nil {
-            print("Error from API... handle it")
+        if let err = error  {
+            print("Error from API: \(err)")
         } else {
             print("Response Successful from the API" + responseString)
         }

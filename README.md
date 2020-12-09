@@ -6,6 +6,7 @@
 - [ ] add core location framework | mostly added need to figure out why values arent being read 
 - [x] show red when deleting a cell
 - [ ] add a deletion icon to indicate that you are deleting an item
+- [x] change all boolean checks of options in sererError or Error text to let error= serverError
 
 ## Bugs:
 

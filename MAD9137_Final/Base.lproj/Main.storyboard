@@ -97,22 +97,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kDT-BL-QZM">
-                            <size key="itemSize" width="338" height="71"/>
+                            <size key="itemSize" width="338" height="77"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="PassportCollectionCell" id="8GX-Yh-cAe" customClass="PassportCollectionViewCell" customModule="MAD9137_Final" customModuleProvider="target">
-                                <rect key="frame" x="38" y="0.0" width="338" height="71"/>
+                                <rect key="frame" x="38" y="0.0" width="338" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8sg-jB-kb9">
-                                    <rect key="frame" x="0.0" y="0.0" width="338" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="338" height="77"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbn-rh-16M">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbn-rh-16M">
                                             <rect key="frame" x="26" y="8" width="274" height="55"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="274" id="ahb-Ig-K3K"/>
                                                 <constraint firstAttribute="height" constant="55" id="yLT-Zq-ati"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
@@ -126,7 +127,7 @@
                                         <constraint firstItem="rbn-rh-16M" firstAttribute="leading" secondItem="8sg-jB-kb9" secondAttribute="leading" constant="26" id="tjO-DQ-V5j"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="338" height="71"/>
+                                <size key="customSize" width="338" height="77"/>
                                 <connections>
                                     <outlet property="cellPassportTitle" destination="rbn-rh-16M" id="nP8-Kl-IFo"/>
                                 </connections>
@@ -138,7 +139,7 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="oMd-2c-RMJ">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Xdf-8s-YbT">
+                        <barButtonItem key="leftBarButtonItem" title="Delete" id="Xdf-8s-YbT">
                             <connections>
                                 <action selector="editBarButtonAction:" destination="TZR-Mk-9rl" id="XGV-qD-Cas"/>
                             </connections>

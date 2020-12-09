@@ -8,9 +8,9 @@
 import UIKit
 // the reference to our reuseIdentifier for the passport Table Cells
 private let reuseIdentifier = "PassportCollectionCell"
-private var cellColour: UIColor = UIColor.systemGray5
-private var selectedCellColour: UIColor = UIColor.systemBlue
-private var deletedCellColour: UIColor = UIColor.systemRed
+private let cellColour: UIColor = UIColor.systemGray5
+private let selectedCellColour: UIColor = UIColor.systemBlue
+private let deletedCellColour: UIColor = UIColor.systemRed
 
 class PassportCollectionViewController: UICollectionViewController {
     // The properties of the Passport CollectionViewController
@@ -18,6 +18,8 @@ class PassportCollectionViewController: UICollectionViewController {
     // to an array of string:Any pairs
     var jsonResponseObject : [String:[[String:Any]]]?
     let mobileBreakpoint: CGFloat = 768 // based on mobile pixel breakpoint
+    private let deleteButtonText = "Delete"
+    private let infoButtonText = "Info"
     @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
     
     // methods for the PassportCollectionViewController
@@ -40,7 +42,7 @@ class PassportCollectionViewController: UICollectionViewController {
         
         // set the size for the cells based on above usign the collectionViewLayout
         collectionViewLayout.itemSize = CGSize(width: cellWidth, height: cellHeight)
-        print(cellWidth, cellHeight)
+//        print(cellWidth, cellHeight)
     }
 
     /*
@@ -94,7 +96,7 @@ class PassportCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedCell = collectionView.cellForItem(at: indexPath)
         
-        if editBarButtonItem.title == "Info" { // we want to delete the item
+        if editBarButtonItem.title == self.infoButtonText { // we want to delete the item
             // after checking if we have a jsonResponseObject and the "locations" index we can pass in the id
             // of the passport to the createPassportRequest function with an id
             selectedCell!.contentView.backgroundColor = deletedCellColour // show the red deletion colour
@@ -132,7 +134,7 @@ class PassportCollectionViewController: UICollectionViewController {
         // will change the text of the barButtonItem to info
         // or edit, if text is edit that means we are going to segue
         // if not then we are going to delete the pushed cells
-        editBarButtonItem.title = editBarButtonItem.title == "Edit" ? "Info" : "Edit"
+        editBarButtonItem.title = editBarButtonItem.title == self.deleteButtonText ? self.infoButtonText : self.deleteButtonText
     }
     
     // method to prepare for the segure to dequeue the proper cell to the  PassportInfoViewController
@@ -161,7 +163,7 @@ class PassportCollectionViewController: UICollectionViewController {
     func createPassportRequest(_url: String, id: Int?) {
         // if there are params lets chain them onto the end of the url
         let newURL = id != nil ? _url + "\(id!)" : _url
-        print(newURL)
+//        print(newURL)
         
         // Create the URLSession object that will be used to make the requests
         let mySession: URLSession = URLSession.shared
@@ -186,10 +188,10 @@ class PassportCollectionViewController: UICollectionViewController {
     // function that will process the request and send off the error or response
     // to our passportCallback function
     func passportRequestTask(serverData: Data?, serverResponse: URLResponse?, serverError: Error?) -> Void{
-        if serverError != nil {
+        if let error = serverError {
             // Send en empty string as the data, and the error to the callback function
-            print("PASSPORT LOADING ERROR: " + serverError!.localizedDescription)
-            self.asyncPassportCallback(responseString: "", error: serverError!.localizedDescription)
+            print("PASSPORT LOADING ERROR: " + error.localizedDescription)
+            self.asyncPassportCallback(responseString: "", error: error.localizedDescription)
         }else{
             // if no error was generated that means we have a response that we will stringify into
             // our jsonResponseObject and call our asyncronous callback
@@ -205,8 +207,8 @@ class PassportCollectionViewController: UICollectionViewController {
         var outputString: String?
         
         // if the server request generate an error than lets handle it
-        if error != nil {
-            print("Error from API... handle it")
+        if let err = error {
+            print("Error from API: \(err)")
         } else {
             print("Response Successful from the API" + responseString)
             outputString = responseString
@@ -234,10 +236,10 @@ class PassportCollectionViewController: UICollectionViewController {
     
     // method callback to deletePassportRequestTask that is called from the createPassportRequest when an id is supplied
     func deletePassportRequestTask(serverData: Data?, serverResponse: URLResponse?, serverError: Error?) -> Void{
-        if serverError != nil {
+        if let error = serverError {
             // Send en empty string as the data, and the error to the callback function
-            print("PASSPORT DELETION ERROR: " + serverError!.localizedDescription)
-            self.asyncDeletePassportCallback(responseString: "", error: serverError!.localizedDescription)
+            print("PASSPORT DELETION ERROR: " + error.localizedDescription)
+            self.asyncDeletePassportCallback(responseString: "", error: error.localizedDescription)
         }else{
             // if no error was generated that means we have a response that we will stringify into
             // our jsonResponseObject and call our asyncronous callback
@@ -251,8 +253,9 @@ class PassportCollectionViewController: UICollectionViewController {
     func asyncDeletePassportCallback(responseString: String, error: String?){
         
         // if the server request generate an error than lets handle it
-        if error != nil {
-            print("Error from API... handle it")
+        if let err = error {
+            print("Error from API: \(err)")
+            // maybe show a alert by dispatching on the main thread as seen below?
         } else {
             print("Response Successful from the API" + responseString)
         }

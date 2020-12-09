@@ -55,10 +55,10 @@ class InfoViewController: UIViewController {
     // function that will process the request and send off the error or response
     // to our passportCallback function
     func passportRequestTask(serverData: Data?, serverResponse: URLResponse?, serverError: Error?) -> Void{
-        if serverError != nil {
+        if let error = serverError {
             // Send en empty string as the data, and the error to the callback function
-            print("PASSPORT \(String(describing: self.currentPassport!["id"])) LOADING ERROR: " + serverError!.localizedDescription)
-            self.asyncPassportCallback(responseString: "", error: serverError!.localizedDescription)
+            print("PASSPORT \(String(describing: self.currentPassport!["id"])) LOADING ERROR: " + error.localizedDescription)
+            self.asyncPassportCallback(responseString: "", error: error.localizedDescription)
         }else{
             // if no error was generated that means we have a response that we will stringify into
             // our jsonResponseObject and call our asyncronous callback
@@ -74,8 +74,8 @@ class InfoViewController: UIViewController {
         var outputString: String?
         
         // if the server request generate an error than lets handle it
-        if error != nil {
-            print("Error from API... handle it")
+        if let err = error {
+            print("Error from API: \(err)")
         } else {
             print("Response Successful from the API" + responseString)
             outputString = responseString
