@@ -98,20 +98,52 @@ class InfoViewController: UIViewController {
         DispatchQueue.main.async(){
             // update the UI if we have a JSON response object
             if let jsonResponse = self.jsonResponseObject {
-                self.title = jsonResponse["title"] as? String
-                self.passportInfoTextView.text =
-                    """
-                    Description:
-                    \(jsonResponse["description"] as! String)
-                    Arrival:
-                    \(jsonResponse["arrival"] as! String)
-                    Departure:
-                    \(jsonResponse["departure"] as! String)
-                    Latitude:
-                    \(jsonResponse["latitude"] as! CLLocationDegrees)
-                    Longitutde:
-                    \(jsonResponse["longitude"] as! CLLocationDegrees)
-                    """
+                
+//                self.title = jsonResponse["title"] as? String
+                // optionally bind the title to the view controller title field
+                if let title = jsonResponse["title"] as? String {
+                    self.title = title
+                }
+                
+                // clear out any text previously in the passport text view
+                self.passportInfoTextView.text = ""
+                
+                // optionally bind and display the passport descriptor fileds in the text view
+                // as we may not have all the fields set especially when the user deletes all passports
+                if let description = jsonResponse["description"] as? String {
+                    self.passportInfoTextView.text += "Description:\n\(description)\n"
+                }
+                
+                if let arrival = jsonResponse["arrival"] as? String {
+                    self.passportInfoTextView.text += "Arrival:\n\(arrival)\n"
+                }
+                
+                if let departure = jsonResponse["departure"] as? String {
+                    self.passportInfoTextView.text += "Departure:\n\(departure)\n"
+                }
+                
+                if let latitude = jsonResponse["latitude"] as? CLLocationDegrees {
+                    self.passportInfoTextView.text += "Latitude:\n\(latitude)\n"
+                }
+                
+                if let longitude = jsonResponse["longitude"] as? CLLocationDegrees {
+                    self.passportInfoTextView.text += "Longitude:\n\(longitude)"
+                }
+                
+                
+//                self.passportInfoTextView.text =
+//                    """
+//                    Description:
+//                    \(jsonResponse["description"] as! String)
+//                    Arrival:
+//                    \(jsonResponse["arrival"] as! String)
+//                    Departure:
+//                    \(jsonResponse["departure"] as! String)
+//                    Latitude:
+//                    \(jsonResponse["latitude"] as! CLLocationDegrees)
+//                    Longitutde:
+//                    \(jsonResponse["longitude"] as! CLLocationDegrees)
+//                    """
             }
             
         }
