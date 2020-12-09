@@ -3,7 +3,7 @@
 ## To Do:
 - [x] change to unsecure http protocol
 - [x] find a way for the user to select the cell with the existing code and delte the cell
-- [ ] add core location framework | mostly added need to figure out why values arent being read 
+- [x] add core location framework | mostly added need to figure out why values arent being read 
 - [x] show red when deleting a cell
 - [ ] add a deletion icon to indicate that you are deleting an item
 - [x] change all boolean checks of options in sererError or Error text to let error= serverError
@@ -17,7 +17,7 @@
 - [ ] collection view cells are aligned all over the place with the buttons either showing above or below the title ...
 - [x]  SSL certificate has expired, maybe I am =sending the auth credentials wrong | ERROR: An SSL error has occurred and a secure connection to the server cannot be made. Error from API... handle it | SOLUTION: Change to unsecure http protocol because the security certificate expired on the server 
 - [ ] clicking on a cell with no info set will crash the prgram, must add guard statements
-
+- [x] cannot set the location for some reason | SOLUTION:  WAS NEVER SETTING THE LOCATION IN THE SIM!!
 ## Layout (21 pt)
 
 - [x] create a tableViewController, a tableViewController class file, and assign the class to the tableView in the storyboard (3pt)
