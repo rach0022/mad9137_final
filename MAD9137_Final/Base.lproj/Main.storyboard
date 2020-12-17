@@ -9,55 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Passport Table View Controller-->
-        <scene sceneID="IIh-JD-iJ4">
-            <objects>
-                <tableViewController id="C9m-T3-OfB" customClass="PassportTableViewController" customModule="MAD9137_Final" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Qgy-I1-ptq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PassportTableCell" rowHeight="79" id="zBp-qg-sUX" customClass="PassportTableViewCell" customModule="MAD9137_Final" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="79"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zBp-qg-sUX" id="zgw-Fw-Wje">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iey-KQ-k0i">
-                                            <rect key="frame" x="20" y="11" width="374" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="cellPassportTitle" destination="Iey-KQ-k0i" id="dej-Rh-HeT"/>
-                                    <segue destination="cfC-oO-g3G" kind="show" identifier="ShowPassportInfo" id="Xws-1X-pfJ"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="C9m-T3-OfB" id="9oe-R6-dyT"/>
-                            <outlet property="delegate" destination="C9m-T3-OfB" id="eoP-dD-0wz"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="C7b-2l-1Pq">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="bjO-sH-EMJ">
-                            <connections>
-                                <action selector="addPassportBarButtonAction:" destination="C9m-T3-OfB" id="ltj-oQ-V96"/>
-                                <segue destination="ako-nb-3GN" kind="show" identifier="ShowAddPassportForm" id="Fe6-Ah-qgE"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ov9-yx-6CC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1110" y="-990"/>
-        </scene>
         <!--Info View Controller-->
         <scene sceneID="uaH-Gh-H8a">
             <objects>
@@ -66,11 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ujD-5R-GRz">
-                                <rect key="frame" x="44" y="176" width="327" height="386"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ujD-5R-GRz">
+                                <rect key="frame" x="44" y="208" width="327" height="408"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -78,6 +28,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aI6-0s-Rg9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aI6-0s-Rg9" firstAttribute="trailing" secondItem="ujD-5R-GRz" secondAttribute="trailing" constant="43" id="RUH-jJ-Fni"/>
+                            <constraint firstItem="ujD-5R-GRz" firstAttribute="top" secondItem="aI6-0s-Rg9" secondAttribute="top" constant="120" id="SCy-wo-YFA"/>
+                            <constraint firstItem="ujD-5R-GRz" firstAttribute="leading" secondItem="aI6-0s-Rg9" secondAttribute="leading" constant="44" id="rv6-27-FY7"/>
+                            <constraint firstItem="aI6-0s-Rg9" firstAttribute="bottom" secondItem="ujD-5R-GRz" secondAttribute="bottom" constant="246" id="wXJ-Et-8zD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ErB-Za-BGw"/>
                     <connections>
@@ -168,52 +124,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Passport description" translatesAutoresizingMaskIntoConstraints="NO" id="CLi-Kr-pRM">
-                                <rect key="frame" x="29" y="191" width="365" height="161"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Passport description" translatesAutoresizingMaskIntoConstraints="NO" id="CLi-Kr-pRM">
+                                <rect key="frame" x="29" y="223" width="365" height="161"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="161" id="hNs-db-Yan"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GaH-p9-qHg">
-                                <rect key="frame" x="0.0" y="400" width="414" height="180"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GaH-p9-qHg">
+                                <rect key="frame" x="33" y="432" width="349" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="Z7I-9X-dco"/>
+                                </constraints>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="siL-JK-IXe">
-                                <rect key="frame" x="0.0" y="657" width="414" height="180"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="siL-JK-IXe">
+                                <rect key="frame" x="33" y="689" width="349" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="Y3t-Jm-g5O"/>
+                                </constraints>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Departure Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiY-rp-amx">
-                                <rect key="frame" x="29" y="588" width="298" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiY-rp-amx">
+                                <rect key="frame" x="29" y="620" width="298" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Passport Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loY-Lk-jgk">
-                                <rect key="frame" x="20" y="130" width="298" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passport Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="loY-Lk-jgk">
+                                <rect key="frame" x="20" y="162" width="298" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="Biu-Ut-tbr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arrival Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-fa-zjt">
-                                <rect key="frame" x="29" y="351" width="242" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-L1-Qoe">
+                                <rect key="frame" x="66" y="130" width="283" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPb-fa-zjt">
+                                <rect key="frame" x="33" y="383" width="107" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="Of1-X3-hve"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nlN-L1-Qoe">
-                                <rect key="frame" x="66" y="98" width="283" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c9G-RW-BgS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="siL-JK-IXe" firstAttribute="leading" secondItem="c9G-RW-BgS" secondAttribute="leading" constant="33" id="4fj-bj-Mif"/>
+                            <constraint firstItem="c9G-RW-BgS" firstAttribute="trailing" secondItem="kPb-fa-zjt" secondAttribute="trailing" constant="274" id="5hK-kD-SB1"/>
+                            <constraint firstItem="GaH-p9-qHg" firstAttribute="top" secondItem="kPb-fa-zjt" secondAttribute="bottom" constant="8" symbolic="YES" id="7cc-cp-dE5"/>
+                            <constraint firstItem="loY-Lk-jgk" firstAttribute="top" secondItem="nlN-L1-Qoe" secondAttribute="bottom" constant="-2" id="7fP-cA-kE4"/>
+                            <constraint firstItem="loY-Lk-jgk" firstAttribute="leading" secondItem="c9G-RW-BgS" secondAttribute="leading" constant="20" id="Cb9-Op-j38"/>
+                            <constraint firstItem="c9G-RW-BgS" firstAttribute="trailing" secondItem="GaH-p9-qHg" secondAttribute="trailing" constant="32" id="Cux-kx-E0j"/>
+                            <constraint firstItem="kPb-fa-zjt" firstAttribute="top" secondItem="CLi-Kr-pRM" secondAttribute="bottom" constant="-1" id="HNh-Jt-uOb"/>
+                            <constraint firstItem="CLi-Kr-pRM" firstAttribute="top" secondItem="loY-Lk-jgk" secondAttribute="bottom" constant="8" symbolic="YES" id="MQN-92-aml"/>
+                            <constraint firstItem="siL-JK-IXe" firstAttribute="top" secondItem="IiY-rp-amx" secondAttribute="bottom" constant="45" id="NXj-Iv-WQM"/>
+                            <constraint firstItem="GaH-p9-qHg" firstAttribute="leading" secondItem="c9G-RW-BgS" secondAttribute="leading" constant="33" id="PRu-pd-eNF"/>
+                            <constraint firstItem="IiY-rp-amx" firstAttribute="top" secondItem="GaH-p9-qHg" secondAttribute="bottom" constant="8" symbolic="YES" id="Rre-8G-Pn9"/>
+                            <constraint firstItem="CLi-Kr-pRM" firstAttribute="leading" secondItem="c9G-RW-BgS" secondAttribute="leading" constant="29" id="Rzv-3K-h0k"/>
+                            <constraint firstItem="c9G-RW-BgS" firstAttribute="trailing" secondItem="IiY-rp-amx" secondAttribute="trailing" constant="87" id="S7x-IS-ZX7"/>
+                            <constraint firstItem="nlN-L1-Qoe" firstAttribute="leading" secondItem="c9G-RW-BgS" secondAttribute="leading" constant="66" id="Sye-gI-7XO"/>
+                            <constraint firstItem="IiY-rp-amx" firstAttribute="leading" secondItem="c9G-RW-BgS" secondAttribute="leading" constant="29" id="VTO-BR-0ZU"/>
+                            <constraint firstItem="kPb-fa-zjt" firstAttribute="leading" secondItem="c9G-RW-BgS" secondAttribute="leading" constant="33" id="bPO-tJ-J6q"/>
+                            <constraint firstItem="c9G-RW-BgS" firstAttribute="trailing" secondItem="nlN-L1-Qoe" secondAttribute="trailing" constant="65" id="ecS-o1-KsN"/>
+                            <constraint firstItem="c9G-RW-BgS" firstAttribute="trailing" secondItem="CLi-Kr-pRM" secondAttribute="trailing" constant="20" id="odK-dO-Ild"/>
+                            <constraint firstItem="c9G-RW-BgS" firstAttribute="trailing" secondItem="loY-Lk-jgk" secondAttribute="trailing" constant="96" id="sHt-uz-QUI"/>
+                            <constraint firstItem="c9G-RW-BgS" firstAttribute="trailing" secondItem="siL-JK-IXe" secondAttribute="trailing" constant="32" id="yif-mB-KxU"/>
+                            <constraint firstItem="nlN-L1-Qoe" firstAttribute="top" secondItem="c9G-RW-BgS" secondAttribute="top" constant="42" id="zn3-O5-AG9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Passport Title" id="ffC-eP-7aA">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="KGP-40-UcL">
@@ -231,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gbV-iQ-k8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="359"/>
+            <point key="canvasLocation" x="1986.9565217391305" y="358.92857142857139"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="Y4R-6u-c17">
@@ -254,31 +241,11 @@
                     </view>
                     <connections>
                         <segue destination="ehF-gG-SYA" kind="presentation" identifier="ShowPassportCollection" modalPresentationStyle="fullScreen" id="KxG-t6-Nlp"/>
-                        <segue destination="GTk-dq-C9b" kind="presentation" identifier="ShowPassportTable" id="mfW-zg-3Eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LRT-Gx-La0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-684.05797101449275" y="-38.169642857142854"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6B1-RV-i1N">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GTk-dq-C9b" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="RSj-gw-Jsp"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jSp-Zd-4PA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="C9m-T3-OfB" kind="relationship" relationship="rootViewController" id="jUE-Wg-Jlt"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LCx-Yg-SHg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="213" y="-990"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bNf-Jj-Qb8">
@@ -300,10 +267,6 @@
             <point key="canvasLocation" x="251" y="-38"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="vlF-d4-yjb"/>
-        <segue reference="4fR-nQ-zo6"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

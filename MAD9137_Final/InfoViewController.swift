@@ -20,6 +20,8 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // we will use optional bindign to get the current Passport and then call a request for its details
+        // using the createPassportRequest function with the passport id
         if let passport = self.currentPassport {
             print(passport)
             self.createPassportRequest(_url: "http://lenczes.edumedia.ca/mad9137/final_api/passport/read/?id=", id: passport["id"] as! Int)
@@ -100,13 +102,14 @@ class InfoViewController: UIViewController {
             if let jsonResponse = self.jsonResponseObject {
                 
 //                self.title = jsonResponse["title"] as? String
-                // optionally bind the title to the view controller title field
-                if let title = jsonResponse["title"] as? String {
-                    self.title = title
-                }
-                
                 // clear out any text previously in the passport text view
                 self.passportInfoTextView.text = ""
+                
+                // optionally bind the title to the view controller title field and the text view
+                if let title = jsonResponse["title"] as? String {
+                    self.title = title
+                    self.passportInfoTextView.text += "Title:\n\(title)\n"
+                }
                 
                 // optionally bind and display the passport descriptor fileds in the text view
                 // as we may not have all the fields set especially when the user deletes all passports
@@ -129,21 +132,7 @@ class InfoViewController: UIViewController {
                 if let longitude = jsonResponse["longitude"] as? CLLocationDegrees {
                     self.passportInfoTextView.text += "Longitude:\n\(longitude)"
                 }
-                
-                
-//                self.passportInfoTextView.text =
-//                    """
-//                    Description:
-//                    \(jsonResponse["description"] as! String)
-//                    Arrival:
-//                    \(jsonResponse["arrival"] as! String)
-//                    Departure:
-//                    \(jsonResponse["departure"] as! String)
-//                    Latitude:
-//                    \(jsonResponse["latitude"] as! CLLocationDegrees)
-//                    Longitutde:
-//                    \(jsonResponse["longitude"] as! CLLocationDegrees)
-//                    """
+
             }
             
         }

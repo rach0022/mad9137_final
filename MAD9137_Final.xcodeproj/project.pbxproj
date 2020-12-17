@@ -15,11 +15,9 @@
 		43C53D792578914100FF9AB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C53D772578914100FF9AB0 /* Main.storyboard */; };
 		43C53D7B2578914200FF9AB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43C53D7A2578914200FF9AB0 /* Assets.xcassets */; };
 		43C53D7E2578914200FF9AB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43C53D7C2578914200FF9AB0 /* LaunchScreen.storyboard */; };
-		43C53D88257893BA00FF9AB0 /* PassportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D87257893BA00FF9AB0 /* PassportTableViewController.swift */; };
 		43C53D8B2578947C00FF9AB0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D8A2578947C00FF9AB0 /* SplashViewController.swift */; };
 		43C53D8E2578949100FF9AB0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D8D2578949100FF9AB0 /* InfoViewController.swift */; };
 		43C53D912578949E00FF9AB0 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C53D902578949E00FF9AB0 /* AddViewController.swift */; };
-		43E58B562579CC8300974010 /* PassportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E58B552579CC8300974010 /* PassportTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +31,9 @@
 		43C53D7A2578914200FF9AB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43C53D7D2578914200FF9AB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43C53D7F2578914200FF9AB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43C53D87257893BA00FF9AB0 /* PassportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportTableViewController.swift; sourceTree = "<group>"; };
 		43C53D8A2578947C00FF9AB0 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		43C53D8D2578949100FF9AB0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		43C53D902578949E00FF9AB0 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		43E58B552579CC8300974010 /* PassportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +72,9 @@
 				43C53D7A2578914200FF9AB0 /* Assets.xcassets */,
 				43C53D7C2578914200FF9AB0 /* LaunchScreen.storyboard */,
 				43C53D7F2578914200FF9AB0 /* Info.plist */,
-				43C53D87257893BA00FF9AB0 /* PassportTableViewController.swift */,
 				43C53D8A2578947C00FF9AB0 /* SplashViewController.swift */,
 				43C53D8D2578949100FF9AB0 /* InfoViewController.swift */,
 				43C53D902578949E00FF9AB0 /* AddViewController.swift */,
-				43E58B552579CC8300974010 /* PassportTableViewCell.swift */,
 				4383A023257D4BD600B3ED18 /* PassportInfo.swift */,
 				4383A026257D4C4E00B3ED18 /* PassportCollectionViewController.swift */,
 				4383A029257D4C9400B3ED18 /* PassportCollectionViewCell.swift */,
@@ -159,14 +153,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4383A02A257D4C9400B3ED18 /* PassportCollectionViewCell.swift in Sources */,
-				43C53D88257893BA00FF9AB0 /* PassportTableViewController.swift in Sources */,
 				43C53D722578914100FF9AB0 /* AppDelegate.swift in Sources */,
 				43C53D912578949E00FF9AB0 /* AddViewController.swift in Sources */,
 				43C53D742578914100FF9AB0 /* SceneDelegate.swift in Sources */,
 				43C53D8B2578947C00FF9AB0 /* SplashViewController.swift in Sources */,
 				4383A027257D4C4E00B3ED18 /* PassportCollectionViewController.swift in Sources */,
 				4383A024257D4BD600B3ED18 /* PassportInfo.swift in Sources */,
-				43E58B562579CC8300974010 /* PassportTableViewCell.swift in Sources */,
 				43C53D8E2578949100FF9AB0 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
