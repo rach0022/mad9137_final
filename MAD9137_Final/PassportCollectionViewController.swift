@@ -38,11 +38,10 @@ class PassportCollectionViewController: UICollectionViewController {
         // check the size of the device, if we are in mobile portrait or not and set the value of the cell width and height
         // calculated from the device size
         let cellWidth = view.frame.size.width < self.mobileBreakpoint ? view.frame.size.width - 40 : (view.frame.size.width - 40) / 3
-        let cellHeight = view.frame.size.width < self.mobileBreakpoint ? cellWidth*0.50 : cellWidth*0.30
+        let cellHeight = view.frame.size.width < self.mobileBreakpoint ? cellWidth*0.60 : cellWidth*0.40
         
         // set the size for the cells based on above usign the collectionViewLayout
         collectionViewLayout.itemSize = CGSize(width: cellWidth, height: cellHeight)
-//        print(cellWidth, cellHeight)
     }
 
     /*
